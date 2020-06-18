@@ -1,5 +1,52 @@
 
-.normal {
+@keyframes enter {
+  0% {
+    transform: translateX(-100%);
+    // opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    // opacity: 0;
+  }
+}
+
+@keyframes exit {
+  0% {
+    transform: translateX(0);
+    // opacity: 0;
+  }
+  100% {
+    transform: translateX(100%);
+    // opacity: 1;
+  }
+}
+
+.animate_page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.router_wapper {
   display: block;
+  :global(.page-enter) {
+    position: absolute;
+    // transform: translateX(-100%);
+  }
+  :global(.page-enter-active) {
+    animation: enter 20s ease;
+  }
+  :global(.page-enter-done) {
+    transform: translateX(0);
+  }
+  :global(.page-exit) {
+    position: absolute;
+    // transform: translateX(0);
+  }
+  :global(.page-exit-active) {
+    animation: exit 20s ease;
+  }
+  :global(.page-exit-done) {
+    transform: translateX(100%);
+  }
 }
 

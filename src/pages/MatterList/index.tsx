@@ -1,7 +1,7 @@
 /*
  * @Author: zhangjicheng
  * @Date: 2020-05-19 16:15:05
- * @LastEditTime: 2020-05-23 17:39:17
+ * @LastEditTime: 2020-06-15 10:29:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \wechat-v\src\pages\Matter\index.tsx
@@ -33,7 +33,7 @@ export default connect()((props: any) => {
   // 初始化获取数据
   const fetchData = () => {
     const userId = getUserId();
-    pageLoading(true);
+    // pageLoading(true);
     getMatterList({createby: userId}).then(res => {
       const { code, data = [] } = res;
       if (code === 0) {

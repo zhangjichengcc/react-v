@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-05-15 09:56:27
- * @LastEditTime: 2020-06-12 17:59:29
+ * @LastEditTime: 2020-06-15 11:54:48
  * @LastEditors: Please set LastEditors
  * @Description: 参考https://www.jianshu.com/p/98fb143ac719
  * @FilePath: \wechat-v\src\layouts\index.tsx
@@ -25,21 +25,23 @@ const BasicLayout: React.FC = (props: any) => {
 
 
   return (
-    <TransitionGroup className={styles.router_wapper}>
+    <TransitionGroup
+      className={styles.router_wapper}
+      childFactory={child => React.cloneElement(
+        child,
+      )}
+    >
       <CSSTransition
         key={location.pathname}
-        timeout={10000}
+        timeout={20000}
         classNames="page"
-        // unmountOnExit
+        unmountOnExit
       >
         <div className={styles.animate_page}>
           {children}
         </div>
       </CSSTransition>
     </TransitionGroup>
-    // <div className={styles.normal}>
-    //   {props.children}
-    // </div>
   );
 };
 
